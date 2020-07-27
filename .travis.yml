@@ -1,5 +1,4 @@
 language: python
-
 script: 
   - pip install scipy
   - pip install numpy
