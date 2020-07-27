@@ -1,4 +1,4 @@
-﻿language: python
+language: python
 
 script: 
   - pip install scipy
