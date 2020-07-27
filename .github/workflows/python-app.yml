@@ -22,9 +22,9 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        - pip install scipy
-        - pip install numpy
-        - pip install matplotlib
-        - cd my_project
-        - python 2Bodysimulation.py
+         pip install scipy
+         pip install numpy
+         pip install matplotlib
+         cd my_project
+         python 2Bodysimulation.py
   
