@@ -1,4 +1,7 @@
 # NBodySimulator-2020-USTC: a 3D multibody simulator made for CPII 2020
+
+[![Build Status](https://travis-ci.com/BC-Li/NbodySimulator-2020-USTC.svg?token=Yyg3baLESvJZxgyG1jBY&branch=master)](https://travis-ci.com/BC-Li/NbodySimulator-2020-USTC)
+
 This is my mini project for n-body problem for Computer Programming II 2020 Spring in USTC.   
 
 Source: https://introcs.cs.princeton.edu/python/34nbody/  
