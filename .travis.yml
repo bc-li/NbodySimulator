@@ -1,0 +1,11 @@
+﻿language: python
+
+script: 
+  - pip install scipy
+  - pip install numpy
+  - pip install matplotlib
+  - cd my_project
+  - python nbodysimulator.py
+  - 1
+  - [0,0,0]
+  - [1,1,1]
