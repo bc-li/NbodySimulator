@@ -5,7 +5,4 @@ script:
   - pip install numpy
   - pip install matplotlib
   - cd my_project
-  - python nBodysimulation.py
-  - 1
-  - [0,0,0]
-  - [1,1,1]
+  - python 2Bodysimulation.py
