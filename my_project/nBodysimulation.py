@@ -11,11 +11,10 @@ from scipy import integrate
 
 
 G = 6.67408e-11 
-mass_of_sun = 1.989e+30  # kg #mass of the sun
-dis_of_alpha_centauri = 5.326e+12  # m #distance between stars in Alpha Centauri
-revolution_speed_earth = 30000  # m/s #relative velocity of earth around the sun
-orbital_period = 79.91 * 365 * 24 * 3600 * 0.51  # s #orbital period of Alpha Centauri
-# Net constants
+mass_of_sun = 1.989e+30  #mass of the sun (kg)
+dis_of_alpha_centauri = 5.326e+12  #distance between stars in Alpha Centauri (m)
+revolution_speed_earth = 30000   #relative velocity of earth around the sun (m/s)
+orbital_period = 79.91 * 365 * 24 * 3600 * 0.51  #orbital period of Alpha Centauri (s)
 constant_1 = G * orbital_period * mass_of_sun / (dis_of_alpha_centauri ** 2 * revolution_speed_earth)
 constant_2 = revolution_speed_earth * orbital_period / dis_of_alpha_centauri
 print("Let us know how many planets you want to simulate.")
@@ -97,24 +96,18 @@ def NBodyEquation(w, t, G, *mass):
     derivs = np.concatenate((r_derivs, v_derivs))
     return derivs
 
-
-init_params = np.array([r, velocity])  # Initial parameters
-init_params = init_params.flatten()  # Flatten to make 1D array
-time_span = np.linspace(0, 20, 500)  # 20 orbital periods and 500 points
-# Run the ODE solver
-
-solution_n_body = np.integrate.odeint(NBodyEquation, init_params, time_span, args=(G, *mass))
-
+init_params = np.array([r, velocity])  
+init_params = init_params.flatten()  
+time_span = np.linspace(0, 20, 500)  
+solution_n_body = sci.integrate.odeint(NBodyEquation, init_params, time_span, args=(G, *mass))
 r_sol = []
 for zz in range(number_of_planets):
     r_sol_temp = solution_n_body[:, 3*zz: 3*(zz+1)]
     r_sol.append(r_sol_temp)
 
-# Create figure
+
 fig = plt.figure(figsize=(15, 15))
-# Create 3D axes
 ax = fig.add_subplot(111, projection='3d')
-# Plot the orbits
 line = []
 for n_counter in range(number_of_planets):
     line_temp, = ax.plot(r_sol[n_counter][:, 0], r_sol[n_counter][:, 1], r_sol[n_counter][:, 2])
