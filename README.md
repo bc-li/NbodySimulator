@@ -14,7 +14,7 @@ Princeton used their own API based on a 2D toolkit "pygame". So I used numpy ins
 └─Princeton_sample   // samples given by Princeton    
 
 ## Getting Started
-Clone this repo, move directly into `my_project` directory and run `nbodysimulator.py.`
+Clone this repo, move directly into `my_project` directory and run `nbodysimulation.py.`
 
 ### Dependencies
 * Matplotlib

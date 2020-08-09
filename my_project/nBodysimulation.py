@@ -103,11 +103,11 @@ init_params = init_params.flatten()  # Flatten to make 1D array
 time_span = np.linspace(0, 20, 500)  # 20 orbital periods and 500 points
 # Run the ODE solver
 
-three_body_sol = sci.integrate.odeint(NBodyEquation, init_params, time_span, args=(G, *mass))
+solution_n_body = np.integrate.odeint(NBodyEquation, init_params, time_span, args=(G, *mass))
 
 r_sol = []
 for zz in range(number_of_planets):
-    r_sol_temp = three_body_sol[:, 3*zz: 3*(zz+1)]
+    r_sol_temp = solution_n_body[:, 3*zz: 3*(zz+1)]
     r_sol.append(r_sol_temp)
 
 # Create figure
@@ -116,16 +116,16 @@ fig = plt.figure(figsize=(15, 15))
 ax = fig.add_subplot(111, projection='3d')
 # Plot the orbits
 line = []
-for nn in range(number_of_planets):
-    line_temp, = ax.plot(r_sol[nn][:, 0], r_sol[nn][:, 1], r_sol[nn][:, 2])
+for n_counter in range(number_of_planets):
+    line_temp, = ax.plot(r_sol[n_counter][:, 0], r_sol[n_counter][:, 1], r_sol[n_counter][:, 2])
     line.append(line_temp,)
 
 
 def animate(i):
-    for ss in range(number_of_planets):
-        line[ss].set_xdata(r_sol[ss][:i, 0])
-        line[ss].set_ydata(r_sol[ss][:i, 1])
-        line[ss].set_3d_properties(r_sol[ss][:i, 2])
+    for s_counter in range(number_of_planets):
+        line[s_counter].set_xdata(r_sol[s_counter][:i, 0])
+        line[s_counter].set_ydata(r_sol[s_counter][:i, 1])
+        line[s_counter].set_3d_properties(r_sol[s_counter][:i, 2])
     for n in range(number_of_planets):
         return line[n],
 
